@@ -1,0 +1,23 @@
+{
+  "name": "findmembershipfee",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoelSatkas/FindMembershipFee.git"
+  },
+  "author": "Joel Satkauskas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoelSatkas/FindMembershipFee/issues"
+  },
+  "homepage": "https://github.com/JoelSatkas/FindMembershipFee#readme",
+  "dependencies": {
+    "typescript": "^3.4.5"
+  }
+}
