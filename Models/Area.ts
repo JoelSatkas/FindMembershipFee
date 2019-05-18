@@ -1,11 +1,11 @@
-import {OrganisationUnit} from "./OrganisationUnit";
+import {OrganisationType, OrganisationUnit} from "./OrganisationUnit";
 import {Branch} from "./Branch";
 
 export class Area extends OrganisationUnit {
     branches: Branch[];
 
     constructor(inputJson: any, parent: OrganisationUnit){
-        super(inputJson, parent);
+        super(inputJson, parent, OrganisationType.Area);
         this.branches = [];
     }
 

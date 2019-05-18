@@ -1,14 +1,21 @@
 import {ConfigObject} from "./ConfigObject";
 
+export enum OrganisationType {
+    Client,
+    Division,
+    Area,
+    Branch
+}
+
 export class OrganisationUnit {
     name: string;
-    type: string;
+    type: OrganisationType;
     config: ConfigObject | undefined;
-    parent: OrganisationUnit;
+    parent: OrganisationUnit | undefined;
 
-    constructor(inputJson: any, _parent: OrganisationUnit){
+    constructor(inputJson: any, _parent: OrganisationUnit | undefined, _type: OrganisationType){
         this.name = inputJson.name;
-        this.type = inputJson.type;
+        this.type = _type;
         this.parent = _parent;
         if (inputJson.config){
             this.config = new ConfigObject(inputJson.config.has_fixed_membership_fee, inputJson.config.fixed_membership_fee_amount);
