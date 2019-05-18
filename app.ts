@@ -1,6 +1,9 @@
 import {Client} from "./Models/Client";
 import {parseClient} from "./Parsers/ClientParser";
 import {validateInputForMembership} from "./Logic/Validation";
+import {findFixedMembershipFee} from "./Logic/FindFixedMembership";
+const MINIMUM_RENT_OFFSET_PER_WEEK: number = 12000; //£120
+const VAT_MULTIPLIER: number = 1.2;
 
 export class App {
     clients: Client[];
@@ -32,9 +35,27 @@ export class App {
 
         // If this is fine,
         // 1. Get rent amount
-        // 2. Go up hiearchy and find the fixed amount
+        let membershipFee: number = 0;
+        if(rent_amount > MINIMUM_RENT_OFFSET_PER_WEEK) {
+            membershipFee = MINIMUM_RENT_OFFSET_PER_WEEK;
+        }
+        else {
+            membershipFee = rent_amount;
+        }
+
+        membershipFee = membershipFee * VAT_MULTIPLIER;
+
+        // 2. Go up hierarchy and find the fixed amount
         //  if found, apply new fixed amount and return
 
-        throw "TODO implement"
+        let fixedMembershipFee: number = findFixedMembershipFee(organisation_unit, this.clients);
+
+        if(fixedMembershipFee === 0) {
+            console.log("Cannot find fixed membership fee from parents");
+        }
+        else{
+            membershipFee = fixedMembershipFee;
+        }
+        return membershipFee;
     }
 }

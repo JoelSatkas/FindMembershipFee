@@ -6,9 +6,13 @@ function runApp() {
     let jsonData: any = JSON.parse(rawData);
 
     let appInstance: App = new App(jsonData);
-    /*
-        TODO: Run tests against the function.
-     */
+
+    rawData = fs.readFileSync("./Data/TestData.json");
+    let jsonTestData: any = JSON.parse(rawData);
+
+    jsonTestData.data.forEach( (testOrgJson: any) => {
+        //appInstance.calculate_membership_fee()
+    });
 
     console.log(jsonData);
 }

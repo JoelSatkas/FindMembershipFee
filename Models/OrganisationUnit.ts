@@ -1,15 +1,15 @@
 import {ConfigObject} from "./ConfigObject";
 
 export enum OrganisationType {
-    Client,
-    Division,
-    Area,
-    Branch
+    Client = "client",
+    Division = "division",
+    Area = "area",
+    Branch = "branch"
 }
 
 export enum PeriodTypes {
-    week,
-    month
+    week = "week",
+    month = "month"
 }
 
 export class OrganisationUnit {
