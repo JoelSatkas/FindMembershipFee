@@ -7,6 +7,11 @@ export enum OrganisationType {
     Branch
 }
 
+export enum PeriodTypes {
+    week,
+    month
+}
+
 export class OrganisationUnit {
     name: string;
     type: OrganisationType;
