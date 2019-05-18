@@ -33,7 +33,6 @@ export class App {
             return -1;
         }
 
-        // If this is fine,
         // 1. Get rent amount
         let membershipFee: number = 0;
         if(rent_amount > MINIMUM_RENT_OFFSET_PER_WEEK) {
@@ -43,17 +42,18 @@ export class App {
             membershipFee = rent_amount;
         }
 
+        // VAT
         membershipFee = membershipFee * VAT_MULTIPLIER;
 
         // 2. Go up hierarchy and find the fixed amount
         //  if found, apply new fixed amount and return
-
         let fixedMembershipFee: number = findFixedMembershipFee(organisation_unit, this.clients);
 
         if(fixedMembershipFee === 0) {
             console.log("Cannot find fixed membership fee from parents");
         }
         else{
+            // Does this need VAT?
             membershipFee = fixedMembershipFee;
         }
         return membershipFee;

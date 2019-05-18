@@ -9,11 +9,9 @@ export class Client extends OrganisationUnit{
         this.divisions = [];
     }
 
-    createDivision(inputJson: any){
-        this.divisions.push(new Division(inputJson, this));
-    }
-
-    parseJson(inputJson: any) {
-
+    createDivision(inputJson: any): Division {
+        let division = new Division(inputJson, this);
+        this.divisions.push(division);
+        return division;
     }
 }

@@ -3,8 +3,7 @@ import {Division} from "../Models/Division";
 import {parseArea} from "./AreaParser";
 
 export function parseDivision(divisionJsonObject: any, clientReference: Client) {
-    let division = new Division(divisionJsonObject, clientReference);
-    clientReference.divisions.push(division);
+    let division = clientReference.createDivision(divisionJsonObject);
     divisionJsonObject.areas.forEach((areaJsonObject: any) => {
         parseArea(areaJsonObject, division);
     });

@@ -9,7 +9,9 @@ export class Division extends OrganisationUnit{
         this.areas = [];
     }
 
-    createArea(inputJson: any){
-        this.areas.push(new Area(inputJson, this));
+    createArea(inputJson: any): Area {
+        let area = new Area(inputJson, this);
+        this.areas.push(area);
+        return area;
     }
 }

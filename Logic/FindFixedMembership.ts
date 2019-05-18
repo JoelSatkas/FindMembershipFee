@@ -13,7 +13,8 @@ export function findFixedMembershipFee(organisation_unit: any, clients: Client[]
     }
 
     let nameToFind = organisation_unit.name;
-    let type = nameToFind.substring(0, nameToFind.indexOf('_'));
+    let underscoreIndex = nameToFind.indexOf('_');
+    let type = nameToFind.substring(0, underscoreIndex > 0 ? underscoreIndex : nameToFind.length);
     let organisationUnitFound: OrganisationUnit | undefined = findOrgUnitFromClients(nameToFind, clients, type);
     return findFixedFeeFromParents(organisationUnitFound);
 }
@@ -47,7 +48,7 @@ function findOrgUnitFromClients(nameToFind: string, clients: Client[], type: Org
     });
 
     if (type === OrganisationType.Branch) {
-        return findNameFromOrgUnitArray(nameToFind, areas);
+        return findNameFromOrgUnitArray(nameToFind, branches);
     }
 
     //TODO find type earlier to avoid wasting computation

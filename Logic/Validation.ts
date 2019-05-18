@@ -1,5 +1,6 @@
 export const MINIMUM_RENT_AMOUNT_PER_WEEK: number = 2500; //£25
 export const MAXIMUM_RENT_AMOUNT_PER_WEEK: number = 200000; //£2000
+export const WEEKS_IN_A_MONTH: number = 4.345;
 
 export function validateInputForMembership(rent_amount: number, rent_period: string, organisation_unit: any) {
     let result: string[] = [];
@@ -23,7 +24,7 @@ export function validateInputForMembership(rent_amount: number, rent_period: str
 function validationRuleForAmount(rent_amount: number, rent_period: string, result: string[]) {
     let amount: number;
     if(rent_period === "month"){
-        amount = rent_amount / 4.345;
+        amount = rent_amount / WEEKS_IN_A_MONTH;
     }
     else {
         amount = rent_amount;

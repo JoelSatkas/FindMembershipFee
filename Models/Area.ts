@@ -10,6 +10,8 @@ export class Area extends OrganisationUnit {
     }
 
     createBranch(inputJson: any) {
-        this.branches.push(new Branch(inputJson, this));
+        let branch = new Branch(inputJson, this);
+        this.branches.push(branch);
+        return branch;
     }
 }
