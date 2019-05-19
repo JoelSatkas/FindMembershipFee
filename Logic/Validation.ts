@@ -13,6 +13,7 @@ export function validateInputForMembership(rent_amount: number, rent_period: str
     validationRuleForPeriod(rent_period, result);
     validationRuleForAmount(rent_amount, rent_period, result);
     validationRuleForOrganisationUnit(organisation_unit, result);
+    // Future input validation can be added here
 
     return result;
 }

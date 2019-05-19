@@ -13,7 +13,6 @@ export function findFixedMembershipFee(organisation_unit: any, clients: Client[]
     if(organisation_unit.config &&
         organisation_unit.config.has_fixed_membership_fee &&
         organisation_unit.config.fixed_membership_fee_amount > 0){
-
         return organisation_unit.config.fixed_membership_fee_amount;
     }
 

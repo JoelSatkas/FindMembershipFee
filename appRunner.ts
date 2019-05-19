@@ -14,10 +14,9 @@ function runApp() {
     let jsonTestData: any = JSON.parse(rawData);
 
     jsonTestData.data.forEach( (testOrgJson: any) => {
-        appInstance.calculate_membership_fee(20000, "week", testOrgJson);
+        console.log("Passing in: " + JSON.stringify(testOrgJson));
+        console.log("Output is: " + appInstance.calculate_membership_fee(20000, "week", testOrgJson));
     });
-
-    console.log(jsonData);
 }
 
 runApp();
