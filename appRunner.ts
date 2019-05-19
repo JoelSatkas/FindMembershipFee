@@ -1,6 +1,9 @@
 import * as fs from 'fs';
 import {App} from "./app";
 
+/***
+ * The method from which we can run the main app and test its output.
+ */
 function runApp() {
     let rawData: any = fs.readFileSync("./Data/InstanceData.json");
     let jsonData: any = JSON.parse(rawData);
